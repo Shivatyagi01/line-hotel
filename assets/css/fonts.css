@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "LibreBaskerville Bold";
+  src: url(../fonts/LibreBaskerville-Bold.ttf);
+}
+@font-face {
+  font-family: "LibreBaskerville Italic";
+  src: url(../fonts/LibreBaskerville-Italic.ttf);
+}
+@font-face {
+  font-family: "LibreBaskerville";
+  src: url(../fonts/LibreBaskerville-Regular.ttf);
+}
+@font-face {
+  font-family: "Lydian BT";
+  src: url(../fonts/LydianBT-Roman.woff2);
+}
+@font-face {
+  font-family: "Proxima Nova Bold";
+  src: url(../fonts/ProximaNova-Bold.woff2);
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url(../fonts/ProximaNova-Regular.woff2);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "LibreBaskerville Bold";
+}
+p {
+}
+a,
+button,
+input,
+textarea {
+  font-family: "Proxima Nova";
+  outline: none;
+}
+a {
+  color: #2f2f2f;
+}

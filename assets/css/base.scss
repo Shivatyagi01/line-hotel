@@ -1,0 +1,171 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+:root {
+    .location-los-angeles & {
+      --theme-color: #ffb600;
+    }
+    .location-dc & {
+      --theme-color: #F3CECD;
+    }
+    .location-austin & {
+      --theme-color: #385988;
+    }
+    .location-san-francisco & {
+      --theme-color: #8AA9D5;
+    }
+  }
+  /**
+   * Set up a decent box model on the root element
+   */
+  html {
+    box-sizing: border-box;
+     -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    max-width: 100%;
+    @include typography(12px, 20px, 12px, 24px, 400, $f-text);
+  
+    &::before {
+      @include pseudo-elements();
+      position: fixed;
+      background-image: image('bg.jpg');
+      background-repeat: repeat;
+      opacity: 0.13;
+      z-index: -1;
+      pointer-events: none;
+    }
+  
+    &::after {
+      @include when-inside('.disable-scrolling') {
+        @include pseudo-elements();
+        position: fixed;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 1
+      }
+    }
+    @include custom-scrollbar();
+  }
+  
+  /**
+   * Make all elements from the DOM inherit from the parent box-sizing
+   * Since `*` has a specificity of 0, it does not override the `html` value
+   * making all elements inheriting from the root box-sizing value
+   * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+   */
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  
+    margin: 0;
+    padding: 0;
+  }
+  
+  img {
+    display: block;
+    height: auto;
+    /* Make sure images are scaled correctly. */
+    max-width: 100%;
+    /* Adhere to container width. */
+  }
+  
+  /**
+   * Basic styles for links
+   */
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+  }
+  input[type=submit],
+  button {
+    appearance: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .section {
+    &-indicator {
+      margin-bottom: 32px;
+      font: 700 12px/28px $f-button;
+      letter-spacing: 3.6px;
+      color: $black;
+      text-transform: uppercase;
+      text-align: center;
+      @include mq(tablet) {
+        margin-bottom: 20px;
+      }
+    }
+    &-heading {
+      @include typography(46px, 40px, 53px, 65px, 400, $f-heading);
+      letter-spacing: -0.03em;
+    }
+    &-subheading {
+      @include typography(12px, 14px, 14px, 16px, 700, $f-text);
+      letter-spacing: 3px;
+    }
+    &-cta {
+      min-width: 230px;
+      letter-spacing: 2.6px;
+      @include mq(tablet) {
+        letter-spacing: 3.6px;
+      }
+    }
+    &-arrow {
+      position: relative;
+      height: 65px;
+      pointer-events: none;
+      @include mq(tablet) {
+        height: 140px;
+      }
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        left: 50%;
+        bottom: 0;
+        border-right: 1px solid #000;
+        transform: translateX(-50%);
+      }
+      &::before {
+        width: 0;
+        height: 100%;
+      }
+      &::after {
+        width: 11px;
+        height: 0;
+        border-bottom: 1px solid #000;
+        transform: rotate(60deg);
+        left: calc(50% - 8px);
+        bottom: 5px;
+        @include mq(tablet) {
+          width: 15px;
+          left: calc(50% - 11px);
+          bottom: 6px;
+        }
+      }    
+    }
+  }
+  section {
+    a:not([class]) {
+      color: $text-color;
+      text-decoration: underline;
+    }
+  }
+  

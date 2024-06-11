@@ -1,0 +1,39 @@
+/**
+ * Basic typography style for copy text
+ */
+ h1,
+ .h1 {
+   @include typography(44px, 44px, 64px, 87px);
+   text-transform: uppercase;
+ }
+ 
+ h2,
+ .h2 {
+   font: 400 32px/36px $f-text;
+   text-transform: uppercase;
+ }
+ 
+ h3,
+ .h3 {
+   @include typography(28px, 44px, 44px, 69px, 400, $f-text);
+ }
+ 
+ h4,
+ .h4 {
+   @include typography(24px, 28px, 27px, 28px, 700, $f-button);
+   text-transform: uppercase;
+ }
+ 
+ h5 {
+   @include typography(18px, 64px, 24px, 64px, 400, $f-text);
+ }
+ 
+ h6 {
+   @include typography(12px, 14px, 14px, 14px, 700, $f-button);
+   text-transform: uppercase;
+   letter-spacing: 0.3em
+ }
+ 
+ p {
+     @include typography(12px, 20px, 12px, 24px, 400, $f-text);
+ }
